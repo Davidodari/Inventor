@@ -151,6 +151,7 @@
     <Content Include="BATTERIES.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\images.jpeg" />
     <None Include="Resources\thumbnail_inventory.jpg" />
     <None Include="Resources\thumbnail_Track-Inventory-WhiteRack_0.jpg" />
   </ItemGroup>

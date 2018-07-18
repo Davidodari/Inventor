@@ -15,6 +15,7 @@
       Me.InventoryTableAdapter.Fill(Me.BATTERIESDataSet.Inventory)
       ' loads data into the 'BATTERIESDataSet.Product_Details' table. You can move, or remove it, as needed.
       Me.Product_DetailsTableAdapter.Fill(Me.BATTERIESDataSet.Product_Details)
+      
    End Sub
 
    'LOGIN GUI
@@ -174,7 +175,12 @@
       CustomerInformationBindingSource.RemoveCurrent()
    End Sub
 
-   
+ 
+
+
+
+
+
 
 
 

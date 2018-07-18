@@ -138,24 +138,23 @@ Partial Class loginPage
         Me.nextButton4 = New System.Windows.Forms.Button()
         Me.previousButton4 = New System.Windows.Forms.Button()
         Me.storeButton4 = New System.Windows.Forms.Button()
-        Me.stateLabel0 = New System.Windows.Forms.Label()
         Me.cityLabel0 = New System.Windows.Forms.Label()
         Me.addressLabel0 = New System.Windows.Forms.Label()
         Me.customerContactLabel0 = New System.Windows.Forms.Label()
         Me.phoneLabel0 = New System.Windows.Forms.Label()
         Me.customerNameLabel1 = New System.Windows.Forms.Label()
-        Me.stateTextBox0 = New System.Windows.Forms.TextBox()
         Me.cityTextBox0 = New System.Windows.Forms.TextBox()
         Me.addressTextBox0 = New System.Windows.Forms.TextBox()
         Me.customerContactTextBox0 = New System.Windows.Forms.TextBox()
         Me.phoneTextBox0 = New System.Windows.Forms.TextBox()
         Me.customerNameTextBox1 = New System.Windows.Forms.TextBox()
-        Me.Product_DetailsTableAdapter = New InventoryManagementSystem.BATTERIESDataSetTableAdapters.Product_DetailsTableAdapter()
-        Me.InventoryTableAdapter = New InventoryManagementSystem.BATTERIESDataSetTableAdapters.InventoryTableAdapter()
-        Me.RestockTableAdapter = New InventoryManagementSystem.BATTERIESDataSetTableAdapters.RestockTableAdapter()
-        Me.Customer_OrderTableAdapter = New InventoryManagementSystem.BATTERIESDataSetTableAdapters.Customer_OrderTableAdapter()
-        Me.Customer_InformationTableAdapter = New InventoryManagementSystem.BATTERIESDataSetTableAdapters.Customer_InformationTableAdapter()
+        Me.tabAbout = New System.Windows.Forms.TabPage()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblVersion = New System.Windows.Forms.Label()
+        Me.lblName = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.loginGroupBox = New System.Windows.Forms.GroupBox()
+        Me.lblInvMan = New System.Windows.Forms.Label()
         Me.usernameTextBox = New System.Windows.Forms.TextBox()
         Me.passwordTextBox = New System.Windows.Forms.TextBox()
         Me.clearButton = New System.Windows.Forms.Button()
@@ -164,6 +163,15 @@ Partial Class loginPage
         Me.passwordLabel = New System.Windows.Forms.Label()
         Me.usernameLabel = New System.Windows.Forms.Label()
         Me.titleLabel = New System.Windows.Forms.Label()
+        Me.Product_DetailsTableAdapter = New InventoryManagementSystem.BATTERIESDataSetTableAdapters.Product_DetailsTableAdapter()
+        Me.InventoryTableAdapter = New InventoryManagementSystem.BATTERIESDataSetTableAdapters.InventoryTableAdapter()
+        Me.RestockTableAdapter = New InventoryManagementSystem.BATTERIESDataSetTableAdapters.RestockTableAdapter()
+        Me.Customer_OrderTableAdapter = New InventoryManagementSystem.BATTERIESDataSetTableAdapters.Customer_OrderTableAdapter()
+        Me.Customer_InformationTableAdapter = New InventoryManagementSystem.BATTERIESDataSetTableAdapters.Customer_InformationTableAdapter()
+        Me.lblInventor = New System.Windows.Forms.Label()
+        Me.CustomerInformationBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.stateTextBox0 = New System.Windows.Forms.TextBox()
+        Me.stateLabel0 = New System.Windows.Forms.Label()
         Me.tabControls.SuspendLayout
         Me.tabProductDetails.SuspendLayout
         CType(Me.DataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
@@ -181,7 +189,9 @@ Partial Class loginPage
         Me.tabCustomerInformation.SuspendLayout
         CType(Me.DataGridView5,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.CustomerInformationBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.tabAbout.SuspendLayout
         Me.loginGroupBox.SuspendLayout
+        CType(Me.CustomerInformationBindingSource1,System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'tabControls
@@ -191,9 +201,11 @@ Partial Class loginPage
         Me.tabControls.Controls.Add(Me.tabRestock)
         Me.tabControls.Controls.Add(Me.tabCustomerOrder)
         Me.tabControls.Controls.Add(Me.tabCustomerInformation)
-        Me.tabControls.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.tabControls.Location = New System.Drawing.Point(46, 48)
+        Me.tabControls.Controls.Add(Me.tabAbout)
+        Me.tabControls.Font = New System.Drawing.Font("Roboto", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.tabControls.Location = New System.Drawing.Point(37, 71)
         Me.tabControls.Name = "tabControls"
+        Me.tabControls.Padding = New System.Drawing.Point(12, 8)
         Me.tabControls.SelectedIndex = 0
         Me.tabControls.Size = New System.Drawing.Size(1253, 433)
         Me.tabControls.TabIndex = 0
@@ -219,10 +231,10 @@ Partial Class loginPage
         Me.tabProductDetails.Controls.Add(Me.itemTextBox0)
         Me.tabProductDetails.Controls.Add(Me.productNameTextBox0)
         Me.tabProductDetails.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.tabProductDetails.Location = New System.Drawing.Point(4, 33)
+        Me.tabProductDetails.Location = New System.Drawing.Point(4, 38)
         Me.tabProductDetails.Name = "tabProductDetails"
         Me.tabProductDetails.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabProductDetails.Size = New System.Drawing.Size(1245, 396)
+        Me.tabProductDetails.Size = New System.Drawing.Size(1245, 391)
         Me.tabProductDetails.TabIndex = 1
         Me.tabProductDetails.Text = "Product Details"
         Me.tabProductDetails.UseVisualStyleBackColor = true
@@ -235,7 +247,7 @@ Partial Class loginPage
         Me.DataGridView1.DataSource = Me.ProductDetailsBindingSource
         Me.DataGridView1.Location = New System.Drawing.Point(458, 11)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(781, 284)
+        Me.DataGridView1.Size = New System.Drawing.Size(544, 284)
         Me.DataGridView1.TabIndex = 4
         '
         'ProductIDDataGridViewTextBoxColumn
@@ -280,23 +292,27 @@ Partial Class loginPage
         '
         'exitButton0
         '
+        Me.exitButton0.BackColor = System.Drawing.Color.DarkGray
         Me.exitButton0.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.exitButton0.ForeColor = System.Drawing.SystemColors.Control
         Me.exitButton0.Location = New System.Drawing.Point(303, 296)
         Me.exitButton0.Name = "exitButton0"
         Me.exitButton0.Size = New System.Drawing.Size(149, 52)
         Me.exitButton0.TabIndex = 10
         Me.exitButton0.Text = "Exit"
-        Me.exitButton0.UseVisualStyleBackColor = true
+        Me.exitButton0.UseVisualStyleBackColor = false
         '
         'deleteButton0
         '
+        Me.deleteButton0.BackColor = System.Drawing.Color.Maroon
         Me.deleteButton0.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.deleteButton0.ForeColor = System.Drawing.SystemColors.Control
         Me.deleteButton0.Location = New System.Drawing.Point(303, 238)
         Me.deleteButton0.Name = "deleteButton0"
         Me.deleteButton0.Size = New System.Drawing.Size(149, 52)
         Me.deleteButton0.TabIndex = 9
         Me.deleteButton0.Text = "Delete"
-        Me.deleteButton0.UseVisualStyleBackColor = true
+        Me.deleteButton0.UseVisualStyleBackColor = false
         '
         'nextButton0
         '
@@ -320,13 +336,14 @@ Partial Class loginPage
         '
         'newButton0
         '
+        Me.newButton0.BackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(192,Byte),Integer), CType(CType(0,Byte),Integer))
         Me.newButton0.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.newButton0.Location = New System.Drawing.Point(303, 6)
         Me.newButton0.Name = "newButton0"
         Me.newButton0.Size = New System.Drawing.Size(149, 52)
         Me.newButton0.TabIndex = 6
         Me.newButton0.Text = "New"
-        Me.newButton0.UseVisualStyleBackColor = true
+        Me.newButton0.UseVisualStyleBackColor = false
         '
         'storeButton0
         '
@@ -450,23 +467,25 @@ Partial Class loginPage
         Me.tabInventory.Controls.Add(Me.productIdLabel1)
         Me.tabInventory.Controls.Add(Me.productIdTextBox1)
         Me.tabInventory.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.tabInventory.Location = New System.Drawing.Point(4, 33)
+        Me.tabInventory.Location = New System.Drawing.Point(4, 38)
         Me.tabInventory.Name = "tabInventory"
         Me.tabInventory.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabInventory.Size = New System.Drawing.Size(1245, 396)
+        Me.tabInventory.Size = New System.Drawing.Size(1245, 391)
         Me.tabInventory.TabIndex = 0
         Me.tabInventory.Text = "Inventory"
         Me.tabInventory.UseVisualStyleBackColor = true
         '
         'newButton1
         '
+        Me.newButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(192,Byte),Integer), CType(CType(0,Byte),Integer))
         Me.newButton1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.newButton1.ForeColor = System.Drawing.SystemColors.Control
         Me.newButton1.Location = New System.Drawing.Point(303, 8)
         Me.newButton1.Name = "newButton1"
         Me.newButton1.Size = New System.Drawing.Size(149, 52)
         Me.newButton1.TabIndex = 30
         Me.newButton1.Text = "New"
-        Me.newButton1.UseVisualStyleBackColor = true
+        Me.newButton1.UseVisualStyleBackColor = false
         '
         'DataGridView2
         '
@@ -606,23 +625,27 @@ Partial Class loginPage
         '
         'exitButton1
         '
+        Me.exitButton1.BackColor = System.Drawing.Color.DarkGray
         Me.exitButton1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.exitButton1.ForeColor = System.Drawing.SystemColors.Control
         Me.exitButton1.Location = New System.Drawing.Point(303, 298)
         Me.exitButton1.Name = "exitButton1"
         Me.exitButton1.Size = New System.Drawing.Size(149, 52)
         Me.exitButton1.TabIndex = 12
         Me.exitButton1.Text = "Exit"
-        Me.exitButton1.UseVisualStyleBackColor = true
+        Me.exitButton1.UseVisualStyleBackColor = false
         '
         'deleteButton1
         '
+        Me.deleteButton1.BackColor = System.Drawing.Color.Maroon
         Me.deleteButton1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.deleteButton1.ForeColor = System.Drawing.SystemColors.Control
         Me.deleteButton1.Location = New System.Drawing.Point(303, 240)
         Me.deleteButton1.Name = "deleteButton1"
         Me.deleteButton1.Size = New System.Drawing.Size(149, 52)
         Me.deleteButton1.TabIndex = 11
         Me.deleteButton1.Text = "Delete"
-        Me.deleteButton1.UseVisualStyleBackColor = true
+        Me.deleteButton1.UseVisualStyleBackColor = false
         '
         'nextButton1
         '
@@ -689,22 +712,24 @@ Partial Class loginPage
         Me.tabRestock.Controls.Add(Me.quantityTextBox0)
         Me.tabRestock.Controls.Add(Me.TextBox1)
         Me.tabRestock.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.tabRestock.Location = New System.Drawing.Point(4, 33)
+        Me.tabRestock.Location = New System.Drawing.Point(4, 38)
         Me.tabRestock.Name = "tabRestock"
-        Me.tabRestock.Size = New System.Drawing.Size(1245, 396)
+        Me.tabRestock.Size = New System.Drawing.Size(1245, 391)
         Me.tabRestock.TabIndex = 2
         Me.tabRestock.Text = "Restock"
         Me.tabRestock.UseVisualStyleBackColor = true
         '
         'newButton2
         '
+        Me.newButton2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(192,Byte),Integer), CType(CType(0,Byte),Integer))
         Me.newButton2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.newButton2.ForeColor = System.Drawing.SystemColors.Control
         Me.newButton2.Location = New System.Drawing.Point(299, 12)
         Me.newButton2.Name = "newButton2"
         Me.newButton2.Size = New System.Drawing.Size(149, 52)
         Me.newButton2.TabIndex = 31
         Me.newButton2.Text = "New"
-        Me.newButton2.UseVisualStyleBackColor = true
+        Me.newButton2.UseVisualStyleBackColor = false
         '
         'DataGridView3
         '
@@ -760,23 +785,27 @@ Partial Class loginPage
         '
         'exitButton2
         '
+        Me.exitButton2.BackColor = System.Drawing.Color.DarkGray
         Me.exitButton2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.exitButton2.ForeColor = System.Drawing.SystemColors.Control
         Me.exitButton2.Location = New System.Drawing.Point(299, 302)
         Me.exitButton2.Name = "exitButton2"
         Me.exitButton2.Size = New System.Drawing.Size(149, 52)
         Me.exitButton2.TabIndex = 10
         Me.exitButton2.Text = "Exit"
-        Me.exitButton2.UseVisualStyleBackColor = true
+        Me.exitButton2.UseVisualStyleBackColor = false
         '
         'deleteButton2
         '
+        Me.deleteButton2.BackColor = System.Drawing.Color.Maroon
         Me.deleteButton2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.deleteButton2.ForeColor = System.Drawing.SystemColors.Control
         Me.deleteButton2.Location = New System.Drawing.Point(299, 244)
         Me.deleteButton2.Name = "deleteButton2"
         Me.deleteButton2.Size = New System.Drawing.Size(149, 52)
         Me.deleteButton2.TabIndex = 9
         Me.deleteButton2.Text = "Delete"
-        Me.deleteButton2.UseVisualStyleBackColor = true
+        Me.deleteButton2.UseVisualStyleBackColor = false
         '
         'nextButton2
         '
@@ -894,22 +923,24 @@ Partial Class loginPage
         Me.tabCustomerOrder.Controls.Add(Me.quantityTextBox1)
         Me.tabCustomerOrder.Controls.Add(Me.customerNameTextBox0)
         Me.tabCustomerOrder.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.tabCustomerOrder.Location = New System.Drawing.Point(4, 33)
+        Me.tabCustomerOrder.Location = New System.Drawing.Point(4, 38)
         Me.tabCustomerOrder.Name = "tabCustomerOrder"
-        Me.tabCustomerOrder.Size = New System.Drawing.Size(1245, 396)
+        Me.tabCustomerOrder.Size = New System.Drawing.Size(1245, 391)
         Me.tabCustomerOrder.TabIndex = 4
-        Me.tabCustomerOrder.Text = "Customer Order"
+        Me.tabCustomerOrder.Text = "Orders"
         Me.tabCustomerOrder.UseVisualStyleBackColor = true
         '
         'newButton3
         '
+        Me.newButton3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(192,Byte),Integer), CType(CType(0,Byte),Integer))
         Me.newButton3.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.newButton3.ForeColor = System.Drawing.SystemColors.Control
         Me.newButton3.Location = New System.Drawing.Point(318, 38)
         Me.newButton3.Name = "newButton3"
         Me.newButton3.Size = New System.Drawing.Size(149, 52)
         Me.newButton3.TabIndex = 32
         Me.newButton3.Text = "New"
-        Me.newButton3.UseVisualStyleBackColor = true
+        Me.newButton3.UseVisualStyleBackColor = false
         '
         'DataGridView4
         '
@@ -959,23 +990,27 @@ Partial Class loginPage
         '
         'exitButton3
         '
+        Me.exitButton3.BackColor = System.Drawing.Color.DarkGray
         Me.exitButton3.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.exitButton3.ForeColor = System.Drawing.SystemColors.Control
         Me.exitButton3.Location = New System.Drawing.Point(318, 325)
         Me.exitButton3.Name = "exitButton3"
         Me.exitButton3.Size = New System.Drawing.Size(149, 52)
         Me.exitButton3.TabIndex = 9
         Me.exitButton3.Text = "Exit"
-        Me.exitButton3.UseVisualStyleBackColor = true
+        Me.exitButton3.UseVisualStyleBackColor = false
         '
         'deleteButton3
         '
+        Me.deleteButton3.BackColor = System.Drawing.Color.Maroon
         Me.deleteButton3.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.deleteButton3.ForeColor = System.Drawing.SystemColors.Control
         Me.deleteButton3.Location = New System.Drawing.Point(318, 267)
         Me.deleteButton3.Name = "deleteButton3"
         Me.deleteButton3.Size = New System.Drawing.Size(149, 52)
         Me.deleteButton3.TabIndex = 8
         Me.deleteButton3.Text = "Delete"
-        Me.deleteButton3.UseVisualStyleBackColor = true
+        Me.deleteButton3.UseVisualStyleBackColor = false
         '
         'nextButton3
         '
@@ -1097,22 +1132,23 @@ Partial Class loginPage
         Me.tabCustomerInformation.Controls.Add(Me.phoneTextBox0)
         Me.tabCustomerInformation.Controls.Add(Me.customerNameTextBox1)
         Me.tabCustomerInformation.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.tabCustomerInformation.Location = New System.Drawing.Point(4, 33)
+        Me.tabCustomerInformation.Location = New System.Drawing.Point(4, 38)
         Me.tabCustomerInformation.Name = "tabCustomerInformation"
-        Me.tabCustomerInformation.Size = New System.Drawing.Size(1245, 396)
+        Me.tabCustomerInformation.Size = New System.Drawing.Size(1245, 391)
         Me.tabCustomerInformation.TabIndex = 5
-        Me.tabCustomerInformation.Text = "Customer Information"
+        Me.tabCustomerInformation.Text = "Client Details"
         Me.tabCustomerInformation.UseVisualStyleBackColor = true
         '
         'newButton4
         '
+        Me.newButton4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(192,Byte),Integer), CType(CType(0,Byte),Integer))
         Me.newButton4.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.newButton4.Location = New System.Drawing.Point(341, 5)
         Me.newButton4.Name = "newButton4"
         Me.newButton4.Size = New System.Drawing.Size(149, 52)
         Me.newButton4.TabIndex = 32
         Me.newButton4.Text = "New"
-        Me.newButton4.UseVisualStyleBackColor = true
+        Me.newButton4.UseVisualStyleBackColor = false
         '
         'DataGridView5
         '
@@ -1174,23 +1210,26 @@ Partial Class loginPage
         '
         'exitButton4
         '
+        Me.exitButton4.BackColor = System.Drawing.Color.DarkGray
         Me.exitButton4.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.exitButton4.Location = New System.Drawing.Point(341, 295)
         Me.exitButton4.Name = "exitButton4"
         Me.exitButton4.Size = New System.Drawing.Size(149, 52)
         Me.exitButton4.TabIndex = 25
         Me.exitButton4.Text = "Exit"
-        Me.exitButton4.UseVisualStyleBackColor = true
+        Me.exitButton4.UseVisualStyleBackColor = false
         '
         'deleteButton4
         '
+        Me.deleteButton4.BackColor = System.Drawing.Color.Maroon
         Me.deleteButton4.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.deleteButton4.ForeColor = System.Drawing.SystemColors.Control
         Me.deleteButton4.Location = New System.Drawing.Point(341, 237)
         Me.deleteButton4.Name = "deleteButton4"
         Me.deleteButton4.Size = New System.Drawing.Size(149, 52)
         Me.deleteButton4.TabIndex = 26
         Me.deleteButton4.Text = "Delete"
-        Me.deleteButton4.UseVisualStyleBackColor = true
+        Me.deleteButton4.UseVisualStyleBackColor = false
         '
         'nextButton4
         '
@@ -1221,15 +1260,6 @@ Partial Class loginPage
         Me.storeButton4.TabIndex = 29
         Me.storeButton4.Text = "Store"
         Me.storeButton4.UseVisualStyleBackColor = true
-        '
-        'stateLabel0
-        '
-        Me.stateLabel0.AutoSize = true
-        Me.stateLabel0.Location = New System.Drawing.Point(47, 330)
-        Me.stateLabel0.Name = "stateLabel0"
-        Me.stateLabel0.Size = New System.Drawing.Size(42, 17)
-        Me.stateLabel0.TabIndex = 9
-        Me.stateLabel0.Text = "State"
         '
         'cityLabel0
         '
@@ -1276,14 +1306,6 @@ Partial Class loginPage
         Me.customerNameLabel1.TabIndex = 12
         Me.customerNameLabel1.Text = "Customer Name"
         '
-        'stateTextBox0
-        '
-        Me.stateTextBox0.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerInformationBindingSource, "State", true))
-        Me.stateTextBox0.Location = New System.Drawing.Point(211, 330)
-        Me.stateTextBox0.Name = "stateTextBox0"
-        Me.stateTextBox0.Size = New System.Drawing.Size(124, 25)
-        Me.stateTextBox0.TabIndex = 5
-        '
         'cityTextBox0
         '
         Me.cityTextBox0.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerInformationBindingSource, "City", true))
@@ -1324,6 +1346,178 @@ Partial Class loginPage
         Me.customerNameTextBox1.Size = New System.Drawing.Size(124, 25)
         Me.customerNameTextBox1.TabIndex = 8
         '
+        'tabAbout
+        '
+        Me.tabAbout.BackColor = System.Drawing.Color.FromArgb(CType(CType(224,Byte),Integer), CType(CType(224,Byte),Integer), CType(CType(224,Byte),Integer))
+        Me.tabAbout.Controls.Add(Me.Label1)
+        Me.tabAbout.Controls.Add(Me.lblVersion)
+        Me.tabAbout.Controls.Add(Me.lblName)
+        Me.tabAbout.Controls.Add(Me.Label2)
+        Me.tabAbout.Location = New System.Drawing.Point(4, 38)
+        Me.tabAbout.Name = "tabAbout"
+        Me.tabAbout.Size = New System.Drawing.Size(1245, 391)
+        Me.tabAbout.TabIndex = 6
+        Me.tabAbout.Text = "About"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = true
+        Me.Label1.Location = New System.Drawing.Point(605, 185)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(46, 19)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "1.0.1"
+        '
+        'lblVersion
+        '
+        Me.lblVersion.AutoSize = true
+        Me.lblVersion.Font = New System.Drawing.Font("Segoe MDL2 Assets", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.lblVersion.Location = New System.Drawing.Point(584, 141)
+        Me.lblVersion.Name = "lblVersion"
+        Me.lblVersion.Size = New System.Drawing.Size(86, 29)
+        Me.lblVersion.TabIndex = 1
+        Me.lblVersion.Text = "Version"
+        '
+        'lblName
+        '
+        Me.lblName.AutoSize = true
+        Me.lblName.Font = New System.Drawing.Font("Xirod", 36!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.lblName.Location = New System.Drawing.Point(421, 38)
+        Me.lblName.Name = "lblName"
+        Me.lblName.Size = New System.Drawing.Size(413, 58)
+        Me.lblName.TabIndex = 0
+        Me.lblName.Text = "INVENTOR"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = true
+        Me.Label2.Location = New System.Drawing.Point(556, 256)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(160, 19)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "Developed by Group2a"
+        '
+        'loginGroupBox
+        '
+        Me.loginGroupBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(1,Byte),Integer), CType(CType(112,Byte),Integer), CType(CType(191,Byte),Integer))
+        Me.loginGroupBox.BackgroundImage = Global.InventoryManagementSystem.My.Resources.Resources.images
+        Me.loginGroupBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.loginGroupBox.Controls.Add(Me.lblInvMan)
+        Me.loginGroupBox.Controls.Add(Me.usernameTextBox)
+        Me.loginGroupBox.Controls.Add(Me.passwordTextBox)
+        Me.loginGroupBox.Controls.Add(Me.clearButton)
+        Me.loginGroupBox.Controls.Add(Me.cnclButton)
+        Me.loginGroupBox.Controls.Add(Me.loginButton)
+        Me.loginGroupBox.Controls.Add(Me.passwordLabel)
+        Me.loginGroupBox.Controls.Add(Me.usernameLabel)
+        Me.loginGroupBox.Controls.Add(Me.titleLabel)
+        Me.loginGroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.loginGroupBox.Location = New System.Drawing.Point(2, -3)
+        Me.loginGroupBox.Name = "loginGroupBox"
+        Me.loginGroupBox.Size = New System.Drawing.Size(1365, 753)
+        Me.loginGroupBox.TabIndex = 3
+        Me.loginGroupBox.TabStop = false
+        Me.loginGroupBox.Text = " "
+        '
+        'lblInvMan
+        '
+        Me.lblInvMan.AutoSize = true
+        Me.lblInvMan.BackColor = System.Drawing.Color.Transparent
+        Me.lblInvMan.Font = New System.Drawing.Font("Raleway", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.lblInvMan.ForeColor = System.Drawing.SystemColors.Control
+        Me.lblInvMan.Location = New System.Drawing.Point(552, 48)
+        Me.lblInvMan.Name = "lblInvMan"
+        Me.lblInvMan.Size = New System.Drawing.Size(152, 15)
+        Me.lblInvMan.TabIndex = 4
+        Me.lblInvMan.Text = "Inventory Management "
+        '
+        'usernameTextBox
+        '
+        Me.usernameTextBox.Location = New System.Drawing.Point(353, 177)
+        Me.usernameTextBox.Name = "usernameTextBox"
+        Me.usernameTextBox.Size = New System.Drawing.Size(165, 20)
+        Me.usernameTextBox.TabIndex = 3
+        '
+        'passwordTextBox
+        '
+        Me.passwordTextBox.Location = New System.Drawing.Point(776, 177)
+        Me.passwordTextBox.Name = "passwordTextBox"
+        Me.passwordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.passwordTextBox.Size = New System.Drawing.Size(165, 20)
+        Me.passwordTextBox.TabIndex = 3
+        '
+        'clearButton
+        '
+        Me.clearButton.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.clearButton.Font = New System.Drawing.Font("Roboto", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.clearButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.clearButton.Location = New System.Drawing.Point(661, 232)
+        Me.clearButton.Name = "clearButton"
+        Me.clearButton.Size = New System.Drawing.Size(75, 23)
+        Me.clearButton.TabIndex = 2
+        Me.clearButton.Text = "Clear"
+        Me.clearButton.UseVisualStyleBackColor = false
+        '
+        'cnclButton
+        '
+        Me.cnclButton.BackColor = System.Drawing.Color.Firebrick
+        Me.cnclButton.Font = New System.Drawing.Font("Roboto", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.cnclButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.cnclButton.Location = New System.Drawing.Point(1098, 174)
+        Me.cnclButton.Name = "cnclButton"
+        Me.cnclButton.Size = New System.Drawing.Size(75, 23)
+        Me.cnclButton.TabIndex = 2
+        Me.cnclButton.Text = "Exit"
+        Me.cnclButton.UseVisualStyleBackColor = false
+        '
+        'loginButton
+        '
+        Me.loginButton.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.loginButton.Font = New System.Drawing.Font("Roboto", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.loginButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.loginButton.Location = New System.Drawing.Point(555, 232)
+        Me.loginButton.Name = "loginButton"
+        Me.loginButton.Size = New System.Drawing.Size(75, 23)
+        Me.loginButton.TabIndex = 1
+        Me.loginButton.Text = "Login"
+        Me.loginButton.UseVisualStyleBackColor = false
+        '
+        'passwordLabel
+        '
+        Me.passwordLabel.AutoSize = true
+        Me.passwordLabel.BackColor = System.Drawing.Color.Transparent
+        Me.passwordLabel.Font = New System.Drawing.Font("Roboto", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.passwordLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.passwordLabel.Location = New System.Drawing.Point(773, 145)
+        Me.passwordLabel.Name = "passwordLabel"
+        Me.passwordLabel.Size = New System.Drawing.Size(56, 14)
+        Me.passwordLabel.TabIndex = 0
+        Me.passwordLabel.Text = "Password"
+        '
+        'usernameLabel
+        '
+        Me.usernameLabel.AutoSize = true
+        Me.usernameLabel.BackColor = System.Drawing.Color.Transparent
+        Me.usernameLabel.Font = New System.Drawing.Font("Roboto", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.usernameLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.usernameLabel.Location = New System.Drawing.Point(350, 145)
+        Me.usernameLabel.Name = "usernameLabel"
+        Me.usernameLabel.Size = New System.Drawing.Size(57, 14)
+        Me.usernameLabel.TabIndex = 0
+        Me.usernameLabel.Text = "Username"
+        '
+        'titleLabel
+        '
+        Me.titleLabel.AutoSize = true
+        Me.titleLabel.BackColor = System.Drawing.Color.Transparent
+        Me.titleLabel.Font = New System.Drawing.Font("Xirod", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.titleLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.titleLabel.Location = New System.Drawing.Point(475, 0)
+        Me.titleLabel.Name = "titleLabel"
+        Me.titleLabel.Size = New System.Drawing.Size(327, 45)
+        Me.titleLabel.TabIndex = 0
+        Me.titleLabel.Text = "INVENTOR"
+        '
         'Product_DetailsTableAdapter
         '
         Me.Product_DetailsTableAdapter.ClearBeforeFill = true
@@ -1344,117 +1538,53 @@ Partial Class loginPage
         '
         Me.Customer_InformationTableAdapter.ClearBeforeFill = true
         '
-        'loginGroupBox
+        'lblInventor
         '
-        Me.loginGroupBox.BackgroundImage = Global.InventoryManagementSystem.My.Resources.Resources.thumbnail_Track_Inventory_WhiteRack_0
-        Me.loginGroupBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.loginGroupBox.Controls.Add(Me.usernameTextBox)
-        Me.loginGroupBox.Controls.Add(Me.passwordTextBox)
-        Me.loginGroupBox.Controls.Add(Me.clearButton)
-        Me.loginGroupBox.Controls.Add(Me.cnclButton)
-        Me.loginGroupBox.Controls.Add(Me.loginButton)
-        Me.loginGroupBox.Controls.Add(Me.passwordLabel)
-        Me.loginGroupBox.Controls.Add(Me.usernameLabel)
-        Me.loginGroupBox.Controls.Add(Me.titleLabel)
-        Me.loginGroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.loginGroupBox.Location = New System.Drawing.Point(0, 0)
-        Me.loginGroupBox.Name = "loginGroupBox"
-        Me.loginGroupBox.Size = New System.Drawing.Size(1365, 753)
-        Me.loginGroupBox.TabIndex = 3
-        Me.loginGroupBox.TabStop = false
+        Me.lblInventor.AutoSize = true
+        Me.lblInventor.Font = New System.Drawing.Font("Xirod", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.lblInventor.ForeColor = System.Drawing.SystemColors.Control
+        Me.lblInventor.Location = New System.Drawing.Point(598, 9)
+        Me.lblInventor.Name = "lblInventor"
+        Me.lblInventor.Size = New System.Drawing.Size(113, 17)
+        Me.lblInventor.TabIndex = 4
+        Me.lblInventor.Text = "INVENTOR"
         '
-        'usernameTextBox
+        'CustomerInformationBindingSource1
         '
-        Me.usernameTextBox.Location = New System.Drawing.Point(131, 254)
-        Me.usernameTextBox.Name = "usernameTextBox"
-        Me.usernameTextBox.Size = New System.Drawing.Size(165, 20)
-        Me.usernameTextBox.TabIndex = 3
+        Me.CustomerInformationBindingSource1.DataMember = "Customer Information"
+        Me.CustomerInformationBindingSource1.DataSource = Me.BATTERIESDataSet
         '
-        'passwordTextBox
+        'stateTextBox0
         '
-        Me.passwordTextBox.Location = New System.Drawing.Point(131, 320)
-        Me.passwordTextBox.Name = "passwordTextBox"
-        Me.passwordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.passwordTextBox.Size = New System.Drawing.Size(165, 20)
-        Me.passwordTextBox.TabIndex = 3
+        Me.stateTextBox0.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerInformationBindingSource, "State", true))
+        Me.stateTextBox0.Location = New System.Drawing.Point(211, 330)
+        Me.stateTextBox0.Name = "stateTextBox0"
+        Me.stateTextBox0.Size = New System.Drawing.Size(124, 25)
+        Me.stateTextBox0.TabIndex = 5
         '
-        'clearButton
+        'stateLabel0
         '
-        Me.clearButton.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.clearButton.Font = New System.Drawing.Font("Roboto", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.clearButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.clearButton.Location = New System.Drawing.Point(221, 436)
-        Me.clearButton.Name = "clearButton"
-        Me.clearButton.Size = New System.Drawing.Size(75, 23)
-        Me.clearButton.TabIndex = 2
-        Me.clearButton.Text = "Clear"
-        Me.clearButton.UseVisualStyleBackColor = false
-        '
-        'cnclButton
-        '
-        Me.cnclButton.BackColor = System.Drawing.Color.Firebrick
-        Me.cnclButton.Font = New System.Drawing.Font("Roboto", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cnclButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.cnclButton.Location = New System.Drawing.Point(131, 494)
-        Me.cnclButton.Name = "cnclButton"
-        Me.cnclButton.Size = New System.Drawing.Size(75, 23)
-        Me.cnclButton.TabIndex = 2
-        Me.cnclButton.Text = "Exit"
-        Me.cnclButton.UseVisualStyleBackColor = false
-        '
-        'loginButton
-        '
-        Me.loginButton.BackColor = System.Drawing.Color.MediumSeaGreen
-        Me.loginButton.Font = New System.Drawing.Font("Roboto", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.loginButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.loginButton.Location = New System.Drawing.Point(33, 436)
-        Me.loginButton.Name = "loginButton"
-        Me.loginButton.Size = New System.Drawing.Size(75, 23)
-        Me.loginButton.TabIndex = 1
-        Me.loginButton.Text = "Login"
-        Me.loginButton.UseVisualStyleBackColor = false
-        '
-        'passwordLabel
-        '
-        Me.passwordLabel.AutoSize = true
-        Me.passwordLabel.Font = New System.Drawing.Font("Roboto", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.passwordLabel.Location = New System.Drawing.Point(30, 320)
-        Me.passwordLabel.Name = "passwordLabel"
-        Me.passwordLabel.Size = New System.Drawing.Size(56, 14)
-        Me.passwordLabel.TabIndex = 0
-        Me.passwordLabel.Text = "Password"
-        '
-        'usernameLabel
-        '
-        Me.usernameLabel.AutoSize = true
-        Me.usernameLabel.Font = New System.Drawing.Font("Roboto", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.usernameLabel.Location = New System.Drawing.Point(30, 257)
-        Me.usernameLabel.Name = "usernameLabel"
-        Me.usernameLabel.Size = New System.Drawing.Size(57, 14)
-        Me.usernameLabel.TabIndex = 0
-        Me.usernameLabel.Text = "Username"
-        '
-        'titleLabel
-        '
-        Me.titleLabel.AutoSize = true
-        Me.titleLabel.Font = New System.Drawing.Font("Xirod", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.titleLabel.Location = New System.Drawing.Point(473, 16)
-        Me.titleLabel.Name = "titleLabel"
-        Me.titleLabel.Size = New System.Drawing.Size(327, 45)
-        Me.titleLabel.TabIndex = 0
-        Me.titleLabel.Text = "INVENTOR"
+        Me.stateLabel0.AutoSize = true
+        Me.stateLabel0.Location = New System.Drawing.Point(47, 330)
+        Me.stateLabel0.Name = "stateLabel0"
+        Me.stateLabel0.Size = New System.Drawing.Size(42, 17)
+        Me.stateLabel0.TabIndex = 9
+        Me.stateLabel0.Text = "State"
         '
         'loginPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = true
-        Me.ClientSize = New System.Drawing.Size(1362, 561)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(1,Byte),Integer), CType(CType(112,Byte),Integer), CType(CType(191,Byte),Integer))
+        Me.ClientSize = New System.Drawing.Size(1350, 729)
         Me.Controls.Add(Me.loginGroupBox)
         Me.Controls.Add(Me.tabControls)
+        Me.Controls.Add(Me.lblInventor)
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.Name = "loginPage"
         Me.Text = "Inventor"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.tabControls.ResumeLayout(false)
         Me.tabProductDetails.ResumeLayout(false)
         Me.tabProductDetails.PerformLayout
@@ -1477,9 +1607,13 @@ Partial Class loginPage
         Me.tabCustomerInformation.PerformLayout
         CType(Me.DataGridView5,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.CustomerInformationBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        Me.tabAbout.ResumeLayout(false)
+        Me.tabAbout.PerformLayout
         Me.loginGroupBox.ResumeLayout(false)
         Me.loginGroupBox.PerformLayout
+        CType(Me.CustomerInformationBindingSource1,System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(false)
+        Me.PerformLayout
 
 End Sub
    Friend WithEvents tabControls As System.Windows.Forms.TabControl
@@ -1520,13 +1654,11 @@ End Sub
    Friend WithEvents orderId1TextBox As System.Windows.Forms.TextBox
    Friend WithEvents quantityTextBox1 As System.Windows.Forms.TextBox
    Friend WithEvents customerNameTextBox0 As System.Windows.Forms.TextBox
-   Friend WithEvents stateLabel0 As System.Windows.Forms.Label
    Friend WithEvents cityLabel0 As System.Windows.Forms.Label
    Friend WithEvents addressLabel0 As System.Windows.Forms.Label
    Friend WithEvents customerContactLabel0 As System.Windows.Forms.Label
    Friend WithEvents phoneLabel0 As System.Windows.Forms.Label
    Friend WithEvents customerNameLabel1 As System.Windows.Forms.Label
-   Friend WithEvents stateTextBox0 As System.Windows.Forms.TextBox
    Friend WithEvents cityTextBox0 As System.Windows.Forms.TextBox
    Friend WithEvents addressTextBox0 As System.Windows.Forms.TextBox
    Friend WithEvents customerContactTextBox0 As System.Windows.Forms.TextBox
@@ -1622,6 +1754,14 @@ End Sub
    Friend WithEvents ArrivalDateDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
    Friend WithEvents OutboundDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
    Friend WithEvents DepartureDateDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-
-
+    Friend WithEvents lblInvMan As Label
+    Friend WithEvents lblInventor As Label
+    Friend WithEvents tabAbout As TabPage
+    Friend WithEvents Label1 As Label
+    Friend WithEvents lblVersion As Label
+    Friend WithEvents lblName As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents CustomerInformationBindingSource1 As BindingSource
+    Friend WithEvents stateLabel0 As Label
+    Friend WithEvents stateTextBox0 As TextBox
 End Class
